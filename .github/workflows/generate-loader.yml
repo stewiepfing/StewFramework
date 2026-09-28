@@ -1,0 +1,29 @@
+name: Generate typed loader
+
+on:
+  push:
+    paths:
+      - "src/ReplicatedStorage/StewFramework/Shared/**"
+      - "scripts/generate_loader.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: python scripts/generate_loader.py
+      - name: Commit generated loader
+        run: |
+          if git diff --quiet -- src/ReplicatedStorage/StewFramework/init.lua; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/ReplicatedStorage/StewFramework/init.lua
+          git commit -m "Generate typed framework loader"
+          git push
