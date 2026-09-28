@@ -1,0 +1,27 @@
+{
+  "name": "StewFramework",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "StewFramework": {
+        "$path": "src/ReplicatedStorage/StewFramework"
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "StewFrameworkServer": {
+        "$path": "src/ServerScriptService/StewFrameworkServer.server.lua"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "StewFrameworkClient": {
+          "$path": "src/StarterPlayer/StarterPlayerScripts/StewFrameworkClient.client.lua"
+        }
+      }
+    }
+  }
+}
